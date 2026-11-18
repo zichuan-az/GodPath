@@ -1,0 +1,181 @@
+type = fancymenu_layout
+
+layout-meta {
+  identifier = title_screen
+  render_custom_elements_behind_vanilla = true
+  is_enabled = true
+  randommode = false
+  layout_index = 0
+}
+
+menu_background {
+  image_path = [source:local]config/fancymenu/assets/godpath_dawn.png
+  background_type = image
+  slide = false
+  repeat_texture = false
+  parallax = false
+  instance_identifier = godpath-dawn-background
+}
+
+customization {
+  action = backgroundoptions
+  keepaspectratio = true
+}
+
+element {
+  source = 神格之路
+  source_mode = direct
+  scale = 1.5
+  shadow = true
+  rotation = 0
+  base_color = #F6E6C6FF
+  refresh = false
+  bouncing = false
+  element_type = splash_text
+  instance_identifier = godpath-title
+  anchor_point = top-left
+  x = 38
+  y = 45
+  width = 164
+  height = 32
+  base_opacity = 1.0
+  auto_sizing = false
+  stay_on_screen = true
+}
+
+element {
+  source = GODPATH 4.1
+  source_mode = direct
+  scale = 0.9
+  shadow = true
+  rotation = 0
+  base_color = #D7C8A9FF
+  refresh = false
+  bouncing = false
+  element_type = splash_text
+  instance_identifier = godpath-version
+  anchor_point = top-left
+  x = 40
+  y = 85
+  width = 150
+  height = 12
+  base_opacity = 1.0
+  auto_sizing = false
+  stay_on_screen = true
+}
+
+element {
+  source = 神物 · 遗迹 · 庄园 · 铁路
+  source_mode = direct
+  scale = 0.7
+  shadow = true
+  rotation = 0
+  base_color = #BFCFC8FF
+  refresh = false
+  bouncing = false
+  element_type = splash_text
+  instance_identifier = godpath-theme-line
+  anchor_point = top-left
+  x = 40
+  y = 105
+  width = 164
+  height = 12
+  base_opacity = 1.0
+  auto_sizing = false
+  stay_on_screen = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = minecraft_logo_widget
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = minecraft_splash_widget
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_singleplayer_button
+  anchor_point = mid-left
+  x = 38
+  y = -8
+  width = 164
+  height = 22
+  is_hidden = false
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_multiplayer_button
+  anchor_point = mid-left
+  x = 38
+  y = 18
+  width = 164
+  height = 22
+  is_hidden = false
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_options_button
+  anchor_point = mid-left
+  x = 38
+  y = 44
+  width = 164
+  height = 22
+  is_hidden = false
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_quit_button
+  anchor_point = mid-left
+  x = 38
+  y = 70
+  width = 164
+  height = 22
+  is_hidden = false
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_realms_button
+  is_hidden = true
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_language_button
+  anchor_point = mid-left
+  x = 38
+  y = 99
+  width = 22
+  height = 20
+  is_hidden = false
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = mc_titlescreen_accessibility_button
+  anchor_point = mid-left
+  x = 64
+  y = 99
+  width = 22
+  height = 20
+  is_hidden = false
+}
+
+vanilla_button {
+  element_type = vanilla_button
+  instance_identifier = titlescreen_mods_button
+  anchor_point = mid-left
+  x = 90
+  y = 99
+  width = 112
+  height = 20
+  is_hidden = false
+}

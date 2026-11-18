@@ -1,0 +1,15 @@
+{
+  "name": "godpath:rail_2",
+  "properties": {
+    "attack_base": 28,
+    "max_damage": 768,
+    "slash_art": "slashblade:piercing",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "model": "slashblade:model/named/muramasa/muramasa.obj",
+    "texture": "slashblade:model/named/muramasa/doutanuki.png"
+  }
+}

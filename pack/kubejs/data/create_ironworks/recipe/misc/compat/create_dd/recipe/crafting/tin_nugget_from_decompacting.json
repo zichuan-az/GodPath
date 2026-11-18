@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create_d2d"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "create_d2d:tin_ingot"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "create_d2d:tin_nugget"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create_d2d:tin_ingot"
+    }
+  ],
+  "result": {
+    "id": "create_d2d:tin_nugget",
+    "count": 9
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "godpath:arcane_3",
+  "properties": {
+    "attack_base": 52,
+    "max_damage": 2048,
+    "slash_art": "slashblade:drive_horizontal",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "model": "slashblade:model/named/agito.obj",
+    "texture": "slashblade:model/named/agito_true.png"
+  }
+}

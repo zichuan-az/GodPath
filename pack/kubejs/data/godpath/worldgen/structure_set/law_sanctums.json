@@ -1,0 +1,39 @@
+{
+  "structures": [
+    {
+      "structure": "godpath:origin_sanctum",
+      "weight": 1
+    },
+    {
+      "structure": "godpath:life_sanctum",
+      "weight": 1
+    },
+    {
+      "structure": "godpath:gear_sanctum",
+      "weight": 1
+    },
+    {
+      "structure": "godpath:rail_sanctum",
+      "weight": 1
+    },
+    {
+      "structure": "godpath:arcane_sanctum",
+      "weight": 1
+    },
+    {
+      "structure": "godpath:blade_sanctum",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 20,
+    "salt": 410624,
+    "spread_type": "triangular",
+    "exclusion_zone": {
+      "other_set": "minecraft:villages",
+      "chunk_count": 8
+    }
+  }
+}

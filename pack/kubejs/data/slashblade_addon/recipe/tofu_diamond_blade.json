@@ -1,0 +1,25 @@
+{
+  "type": "slashblade:slashblade_smithing",
+  "addition": {
+    "item": "tofucraft:blocktofudiamond"
+  },
+  "base": {
+    "type": "slashblade:blade",
+    "items": [
+      "slashblade:slashblade"
+    ],
+    "request": {
+      "name": "slashblade_addon:slashblade_tofu_metal"
+    }
+  },
+  "blade": "slashblade_addon:slashblade_tofu_diamond",
+  "template": {
+    "item": "tofucraft:tofu_upgrade_smithing_template"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "tofucraft"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "godpath:apotheosis",
+  "properties": {
+    "attack_base": 120,
+    "max_damage": 9999,
+    "unbreakable": true,
+    "destructable": false,
+    "slash_art": "slashblade:void_slash",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade:model/named/yamato.obj",
+    "texture": "slashblade:model/named/yamato.png"
+  }
+}

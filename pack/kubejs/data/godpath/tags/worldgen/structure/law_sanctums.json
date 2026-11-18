@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "godpath:origin_sanctum",
+    "godpath:life_sanctum",
+    "godpath:gear_sanctum",
+    "godpath:rail_sanctum",
+    "godpath:arcane_sanctum",
+    "godpath:blade_sanctum"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "godpath:arcane_1",
+  "properties": {
+    "attack_base": 12,
+    "max_damage": 256,
+    "slash_art": "slashblade:drive_horizontal",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "model": "slashblade:model/named/agito.obj",
+    "texture": "slashblade:model/named/a_tukumo.png"
+  }
+}

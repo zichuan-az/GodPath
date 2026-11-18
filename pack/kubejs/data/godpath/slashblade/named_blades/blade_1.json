@@ -1,0 +1,15 @@
+{
+  "name": "godpath:blade_1",
+  "properties": {
+    "attack_base": 12,
+    "max_damage": 256,
+    "slash_art": "slashblade:void_slash",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "model": "slashblade:model/named/yasha/yasha.obj",
+    "texture": "slashblade:model/named/yasha/yasha.png"
+  }
+}

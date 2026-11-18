@@ -1,0 +1,16 @@
+{
+  "name": "godpath:rail_3",
+  "properties": {
+    "attack_base": 52,
+    "max_damage": 2048,
+    "slash_art": "slashblade:piercing",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "model": "slashblade:model/named/yamato.obj",
+    "texture": "slashblade:model/named/yamato.png"
+  }
+}

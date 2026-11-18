@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "quark"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "quark:violet_crystal_lamp"
+    }
+  ],
+  "type": "garnished:purple_dye_blowing",
+  "ingredients": [
+    {
+      "tag": "quark:crystal_lamp"
+    }
+  ],
+  "results": [
+    {
+      "item": {
+        "id": "quark:violet_crystal_lamp"
+      },
+      "count": 1
+    }
+  ]
+}

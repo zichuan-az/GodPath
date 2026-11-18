@@ -1,0 +1,34 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "godpath:origin_2",
+  "category": "equipment",
+  "pattern": [
+    "SCS",
+    "CBC",
+    "SCS"
+  ],
+  "key": {
+    "B": {
+      "type": "slashblade:blade",
+      "items": [
+        "slashblade:slashblade"
+      ],
+      "request": {
+        "name": "godpath:origin_1",
+        "kill": 50,
+        "refine": 3,
+        "proud_soul": 2000
+      }
+    },
+    "S": {
+      "item": "godpath:origin_shard"
+    },
+    "C": {
+      "item": "minecraft:amethyst_block"
+    }
+  },
+  "result": {
+    "id": "slashblade:slashblade",
+    "count": 1
+  }
+}

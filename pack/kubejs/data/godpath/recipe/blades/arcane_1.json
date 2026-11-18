@@ -1,0 +1,26 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "godpath:arcane_1",
+  "category": "equipment",
+  "pattern": [
+    "SSS",
+    "SBS",
+    "SSS"
+  ],
+  "key": {
+    "B": {
+      "type": "slashblade:blade",
+      "items": [
+        "slashblade:slashblade"
+      ],
+      "request": {}
+    },
+    "S": {
+      "item": "godpath:arcane_shard"
+    }
+  },
+  "result": {
+    "id": "slashblade:slashblade",
+    "count": 1
+  }
+}

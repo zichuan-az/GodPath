@@ -1,0 +1,33 @@
+{
+  "type": "slashblade:shaped_blade",
+  "category": "equipment",
+  "key": {
+    "R": {
+      "tag": "c:strings"
+    },
+    "S": {
+      "item": "tofucraft:tofuishi"
+    },
+    "T": {
+      "item": "tofucraft:tofumetal"
+    },
+    "W": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    " ST",
+    "ST ",
+    "WR "
+  ],
+  "result": {
+    "count": 1,
+    "id": "slashblade_addon:slashblade_tofu_metal"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "tofucraft"
+    }
+  ]
+}

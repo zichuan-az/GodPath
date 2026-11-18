@@ -1,0 +1,15 @@
+{
+  "name": "godpath:gear_2",
+  "properties": {
+    "attack_base": 28,
+    "max_damage": 768,
+    "slash_art": "slashblade:wave_edge",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "texture": "slashblade:model/rodai_diamond.png"
+  }
+}

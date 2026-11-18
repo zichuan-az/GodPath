@@ -1,0 +1,15 @@
+{
+  "name": "godpath:origin_1",
+  "properties": {
+    "attack_base": 12,
+    "max_damage": 256,
+    "slash_art": "slashblade:drive_vertical",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "model": "slashblade:model/named/agito.obj",
+    "texture": "slashblade:model/named/agito_false.png"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "better_smithing_upgrades:netherite_upgrade_part"
+  },
+  "base": {
+    "tag": "better_smithing_upgrades:upgradable/netherite_paxel"
+  },
+  "result": {
+    "id": "create_ironworks:netherite_paxel"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "better_smithing_upgrades"
+    }
+  ]
+}

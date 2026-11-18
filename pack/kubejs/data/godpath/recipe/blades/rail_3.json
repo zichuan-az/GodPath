@@ -1,0 +1,34 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "godpath:rail_3",
+  "category": "equipment",
+  "pattern": [
+    "SCS",
+    "CBC",
+    "SCS"
+  ],
+  "key": {
+    "B": {
+      "type": "slashblade:blade",
+      "items": [
+        "slashblade:slashblade"
+      ],
+      "request": {
+        "name": "godpath:rail_2",
+        "kill": 200,
+        "refine": 10,
+        "proud_soul": 10000
+      }
+    },
+    "S": {
+      "item": "godpath:rail_shard"
+    },
+    "C": {
+      "item": "minecraft:echo_shard"
+    }
+  },
+  "result": {
+    "id": "slashblade:slashblade",
+    "count": 1
+  }
+}

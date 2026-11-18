@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "better_smithing_upgrades:gold_upgrade_part"
+  },
+  "base": {
+    "tag": "better_smithing_upgrades:upgradable/gold_paxel"
+  },
+  "result": {
+    "id": "create_ironworks:gold_paxel"
+  },
+  "template": {
+    "item": "better_smithing_upgrades:basic_upgrade_smithing_template"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "better_smithing_upgrades"
+    }
+  ]
+}

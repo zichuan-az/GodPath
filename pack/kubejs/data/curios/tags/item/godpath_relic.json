@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "godpath:origin_stone_core",
+    "godpath:world_seed",
+    "godpath:first_earth_crown",
+    "godpath:echo_of_origin",
+    "godpath:heart_of_seasons",
+    "godpath:harvest_chalice",
+    "godpath:pastoral_bell",
+    "godpath:fertile_sigil",
+    "godpath:eternal_gear",
+    "godpath:energy_core",
+    "godpath:logic_crystal",
+    "godpath:sky_craft_key",
+    "godpath:stellar_compass",
+    "godpath:orbit_staff",
+    "godpath:resonant_beacon",
+    "godpath:temporal_rivet",
+    "godpath:starword_sigil",
+    "godpath:moondrop_lense",
+    "godpath:spirit_wind_wand",
+    "godpath:arcane_fragment_page",
+    "godpath:thunder_blade_soul",
+    "godpath:dragonfang_blade",
+    "godpath:void_sheath",
+    "godpath:final_tablet"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "godpath",
+  "version": "4.1.0",
+  "private": true,
+  "description": "GodPath gameplay sources, world tools and regression checks for Minecraft 1.21.1.",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "format:gameplay": "node scripts/format_gameplay.cjs",
+    "build": "python -X utf8 scripts/gen_release.py"
+  },
+  "engines": { "node": ">=22" },
+  "devDependencies": { "acorn": "8.15.0" }
+}

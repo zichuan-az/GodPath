@@ -1,0 +1,9 @@
+{
+  "entities": [
+    "minecraft:player"
+  ],
+  "slots": [
+    "godpath_relic",
+    "godpath_divinity"
+  ]
+}

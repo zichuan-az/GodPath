@@ -1,0 +1,17 @@
+{
+  "name": "godpath:arcane_2",
+  "properties": {
+    "attack_base": 28,
+    "max_damage": 768,
+    "slash_art": "slashblade:drive_horizontal",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "ninja",
+    "model": "slashblade:model/named/dios/dios.obj",
+    "summon_sword_color": 3158064,
+    "texture": "slashblade:model/named/dios/koseki.png"
+  }
+}

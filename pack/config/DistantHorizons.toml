@@ -1,0 +1,21 @@
+_version = 5
+
+[client.advanced.debugging]
+rendererMode = "DISABLED"
+
+[client.advanced.autoUpdater]
+enableAutoUpdater = false
+
+[client.advanced.graphics.quality]
+lodChunkRenderDistanceRadius = 64
+maxHorizontalResolution = "TWO_BLOCKS"
+horizontalQuality = "LOW"
+verticalQuality = "LOW"
+lodBiomeBlending = 0
+
+[common.worldGenerator]
+generatorPlan = "DISABLED"
+
+[common.multiThreading]
+numberOfThreads = 2
+threadRunTimeRatio = "0.5"

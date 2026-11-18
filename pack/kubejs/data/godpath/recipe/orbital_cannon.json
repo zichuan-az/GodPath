@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": ["ERE", "CBC", "SNS"],
+  "key": {
+    "E": { "item": "minecraft:echo_shard" },
+    "R": { "item": "godpath:rail_shard" },
+    "C": { "item": "minecraft:copper_ingot" },
+    "B": { "item": "godpath:resonant_beacon" },
+    "S": { "item": "minecraft:amethyst_shard" },
+    "N": { "item": "minecraft:nether_star" }
+  },
+  "result": { "id": "godpath:orbital_cannon", "count": 1 }
+}

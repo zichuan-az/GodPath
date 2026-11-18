@@ -1,0 +1,15 @@
+{
+  "name": "godpath:rail_1",
+  "properties": {
+    "attack_base": 12,
+    "max_damage": 256,
+    "slash_art": "slashblade:piercing",
+    "sword_type": [
+      "bewitched"
+    ]
+  },
+  "render": {
+    "carry_type": "default",
+    "texture": "slashblade:model/ruby.png"
+  }
+}

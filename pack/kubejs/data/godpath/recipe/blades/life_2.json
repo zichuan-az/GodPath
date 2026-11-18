@@ -1,0 +1,34 @@
+{
+  "type": "slashblade:shaped_blade",
+  "blade": "godpath:life_2",
+  "category": "equipment",
+  "pattern": [
+    "SCS",
+    "CBC",
+    "SCS"
+  ],
+  "key": {
+    "B": {
+      "type": "slashblade:blade",
+      "items": [
+        "slashblade:slashblade"
+      ],
+      "request": {
+        "name": "godpath:life_1",
+        "kill": 50,
+        "refine": 3,
+        "proud_soul": 2000
+      }
+    },
+    "S": {
+      "item": "godpath:life_shard"
+    },
+    "C": {
+      "item": "minecraft:golden_carrot"
+    }
+  },
+  "result": {
+    "id": "slashblade:slashblade",
+    "count": 1
+  }
+}
