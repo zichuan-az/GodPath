@@ -205,7 +205,7 @@ function gpOrbitalDamage(level, player, target, mode) {
       (mode !== 'terrain' || !gpOrbitalStationProtected(level, entity.x, entity.z));
   });
   var damage = level.damageSources().playerAttack(player);
-  for (var index = 0; index < entities.size(); index++) entities.get(index).hurt(damage, 1000000);
+  for (var index = 0; index < entities.size(); index++) entities.get(index).attack(damage, 1000000);
 }
 
 function gpOrbitalBuildCrater() {

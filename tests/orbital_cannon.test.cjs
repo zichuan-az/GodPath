@@ -180,3 +180,18 @@ test('the world border rejects blocks wholly outside and accepts intersecting bl
   assert.equal(context.gpOrbitalWithinBorder(level, 6, -6), false);
   assert.equal(context.gpOrbitalWithinBorder(level, 6, 3), false);
 });
+
+
+test('the station footprint is protected only in opted-in overworlds', () => {
+  const { context } = loadOrbital();
+  let expedition = true;
+  context.gpExpeditionEnabled = () => expedition;
+  const overworld = { dimension: 'minecraft:overworld', getServer: () => ({}) };
+  const nether = { ...overworld, dimension: 'minecraft:the_nether' };
+  assert.equal(context.gpOrbitalTerrainAllowed(overworld, {}, -8, -20), false);
+  assert.equal(context.gpOrbitalTerrainAllowed(overworld, {}, 200, 30), false);
+  assert.equal(context.gpOrbitalTerrainAllowed(overworld, {}, 201, 30), true);
+  assert.equal(context.gpOrbitalTerrainAllowed(nether, {}, 0, 0), true);
+  expedition = false;
+  assert.equal(context.gpOrbitalTerrainAllowed(overworld, {}, 0, 0), true);
+});
