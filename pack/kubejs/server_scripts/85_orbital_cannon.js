@@ -86,36 +86,42 @@ function gpOrbitalLoaded(level, chunkX, chunkZ) {
 }
 
 function gpOrbitalClipEnd(level, origin, direction) {
-  let chunkX = Math.floor(origin.x / 16);
-  let chunkZ = Math.floor(origin.z / 16);
-  const stepX = Math.sign(direction.x);
-  const stepZ = Math.sign(direction.z);
-  const deltaX = stepX === 0 ? Infinity : 16 / Math.abs(direction.x);
-  const deltaZ = stepZ === 0 ? Infinity : 16 / Math.abs(direction.z);
-  let crossX = stepX === 0 ? Infinity : ((chunkX + (stepX > 0 ? 1 : 0)) * 16 - origin.x) / direction.x;
-  let crossZ = stepZ === 0 ? Infinity : ((chunkZ + (stepZ > 0 ? 1 : 0)) * 16 - origin.z) / direction.z;
-  let distance = 0;
-  while (distance <= GP_ORBITAL.range) {
+  var ox = Number(origin.x), oz = Number(origin.z);
+  var dx = Number(direction.x), dz = Number(direction.z);
+  if (!isFinite(ox) || !isFinite(oz) || !isFinite(dx) || !isFinite(dz)) return null;
+  var chunkX = Math.floor(ox / 16), chunkZ = Math.floor(oz / 16);
+  var stepX = dx > 0 ? 1 : dx < 0 ? -1 : 0;
+  var stepZ = dz > 0 ? 1 : dz < 0 ? -1 : 0;
+  var deltaX = stepX === 0 ? Infinity : 16 / Math.abs(dx);
+  var deltaZ = stepZ === 0 ? Infinity : 16 / Math.abs(dz);
+  var crossX = stepX === 0 ? Infinity : ((chunkX + (stepX > 0 ? 1 : 0)) * 16 - ox) / dx;
+  var crossZ = stepZ === 0 ? Infinity : ((chunkZ + (stepZ > 0 ? 1 : 0)) * 16 - oz) / dz;
+  var distance = 0;
+  var limit = 2 * Math.ceil(GP_ORBITAL.range / 16) + 4;
+  for (var index = 0; index < limit; index++) {
     if (!gpOrbitalLoaded(level, chunkX, chunkZ)) {
-      return distance === 0 ? null : origin.add(direction.scale(distance - 0.0001));
+      return distance <= 0 ? null : origin.add(direction.scale(distance - 0.0001));
     }
-    const crossing = Math.min(crossX, crossZ);
-    if (crossing > GP_ORBITAL.range) break;
-    if (crossX === crossZ && (!gpOrbitalLoaded(level, chunkX + stepX, chunkZ) ||
+    var next = Math.min(crossX, crossZ);
+    if (next > GP_ORBITAL.range) return origin.add(direction.scale(GP_ORBITAL.range));
+    var advanceX = crossX <= crossZ;
+    var advanceZ = crossZ <= crossX;
+    if (!advanceX && !advanceZ) return null;
+    if (advanceX && advanceZ && (!gpOrbitalLoaded(level, chunkX + stepX, chunkZ) ||
         !gpOrbitalLoaded(level, chunkX, chunkZ + stepZ))) {
-      return crossing === 0 ? null : origin.add(direction.scale(crossing - 0.0001));
+      return next <= 0 ? null : origin.add(direction.scale(next - 0.0001));
     }
-    if (crossX === crossing) {
+    if (advanceX) {
       crossX += deltaX;
       chunkX += stepX;
     }
-    if (crossZ === crossing) {
+    if (advanceZ) {
       crossZ += deltaZ;
       chunkZ += stepZ;
     }
-    distance = crossing;
+    distance = next;
   }
-  return origin.add(direction.scale(GP_ORBITAL.range));
+  return null;
 }
 
 function gpOrbitalAim(player, level) {
@@ -304,7 +310,7 @@ function gpOrbitalBegin(player) {
     return false;
   }
   gpOrbitalLoadNative();
-  const level = player.serverLevel();
+  const level = player.level;
   const target = gpOrbitalAim(player, level);
   if (!target || !gpOrbitalTargetValid(level, target)) {
     gpOrbitalStatus(player, 'no_target');
@@ -348,7 +354,7 @@ PlayerEvents.tick(event => {
         gpOrbitalStatus(player, 'cooldown', Math.ceil(cooldown / 20));
       } else if (gpOrbitalMode(player) === 'terrain') {
         gpOrbitalLoadNative();
-        const level = player.serverLevel();
+        const level = player.level;
         const target = gpOrbitalAim(player, level);
         gpOrbitalStatus(player, target && !gpOrbitalTerrainAllowed(level, player, target.x, target.z) ? 'protected' : 'ready');
       } else {
@@ -357,7 +363,7 @@ PlayerEvents.tick(event => {
     }
     return;
   }
-  const level = player.serverLevel();
+  const level = player.level;
   const eligible = gpOrbitalHeld(player) && using && player.isAlive() && !player.isSpectator() && gpIsGod(player) &&
     gpOrbitalMode(player) === charge.mode;
   const dimension = gpOrbitalDimension(level);

@@ -1,0 +1,44 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: python -X utf8 scripts/gen_release.py
+      - run: python -X utf8 -m unittest discover -s tests -p 'test_*.py'
+      - name: Publish downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          version=$(jq -r .version project.json)
+          artifact=$(jq -r .artifact project.json)
+          report=$(jq -r .report project.json)
+          case "$RELEASE_TAG" in
+            "v$version") flags=() ;;
+            "v$version"-rc.*) flags=(--prerelease --latest=false) ;;
+            *) printf 'Unexpected release tag: %s\n' "$RELEASE_TAG" >&2; exit 1 ;;
+          esac
+          install -Dm644 "dist/$artifact.mrpack" "downloads/GodPath-$version-1.21.1.mrpack"
+          cp dist/GodPath-Expedition.zip downloads/
+          (cd downloads && sha256sum -- *.mrpack *.zip > SHA256SUMS.txt)
+          gh release create "$RELEASE_TAG" downloads/* --verify-tag "${flags[@]}" \
+            --title "神格之路 · 高山远征 $RELEASE_TAG" --notes-file "docs/$report"

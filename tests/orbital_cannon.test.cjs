@@ -81,7 +81,7 @@ test('release, logout and unload clean up the active runtime state', () => {
     uuid: 'tester',
     getMainHandItem: () => ({ id: 'godpath:orbital_cannon' }),
     getServer: () => ({ overworld: () => ({ getGameTime: () => 0 }) }),
-    serverLevel: () => ({ dimension: () => ({ location: () => 'minecraft:overworld' }) }),
+    level: { dimension: () => ({ location: () => 'minecraft:overworld' }) },
     persistentData: { getBoolean: () => false },
     isUsingItem: () => false,
     displayClientMessage: () => {}
@@ -151,4 +151,17 @@ test('locked aim is clipped before unloaded chunks and requires a loaded target'
   assert.ok(end < 32 && end > 31.99);
   assert.deepEqual(requests, [[0, 0], [1, 0], [2, 0]]);
   assert.equal(context.gpOrbitalTargetValid(level, { x: 32, y: 70, z: 2 }), false);
+});
+
+
+test('clipping terminates with vertical, diagonal or invalid aim', () => {
+  const { context } = loadOrbital();
+  let reads = 0;
+  const level = { getChunkSource: () => ({ getChunkNow: () => { reads++; return {}; } }) };
+  const origin = { x: 0, z: 0, add: distance => distance };
+  const aim = (x, z) => ({ x, z, scale: distance => distance });
+  assert.equal(context.gpOrbitalClipEnd(level, origin, aim(0, 0)), 128);
+  assert.equal(context.gpOrbitalClipEnd(level, origin, aim(-Math.SQRT1_2, Math.SQRT1_2)), 128);
+  assert.equal(context.gpOrbitalClipEnd(level, origin, aim(NaN, 1)), null);
+  assert.ok(reads < 32);
 });
