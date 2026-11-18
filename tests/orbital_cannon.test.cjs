@@ -17,6 +17,7 @@ function loadOrbital() {
     EntityEvents: events('EntityEvents'),
     NetworkEvents: events('NetworkEvents'),
     global: {},
+    gpDimension: level => String(level.dimension),
     console
   });
   vm.runInContext(fs.readFileSync(path.join(__dirname, '../pack/kubejs/server_scripts/85_orbital_cannon.js'), 'utf8'), context);
@@ -105,12 +106,13 @@ test('claim protection fails closed and terrain preserves claimed chunks even fo
   const player = {};
   const level = {
     getServer: () => ({}),
-    dimension: () => ({ location: () => 'minecraft:overworld' })
+    dimension: 'minecraft:overworld'
   };
   assert.equal(context.gpOrbitalClaimAccess(level, player, 40, 170, true), true);
   context.gpOrbitalClaimsInstalled = true;
   assert.equal(context.gpOrbitalClaimAccess(level, player, 40, 170, true), false);
 
+  context.GpOrbitalResourceLocation = { parse: id => id };
   let ownerAllowed = false;
   let foundClaim = true;
   context.GpOrbitalClaims = {
@@ -164,4 +166,17 @@ test('clipping terminates with vertical, diagonal or invalid aim', () => {
   assert.equal(context.gpOrbitalClipEnd(level, origin, aim(-Math.SQRT1_2, Math.SQRT1_2)), 128);
   assert.equal(context.gpOrbitalClipEnd(level, origin, aim(NaN, 1)), null);
   assert.ok(reads < 32);
+});
+
+
+test('the world border rejects blocks wholly outside and accepts intersecting blocks', () => {
+  const { context } = loadOrbital();
+  const level = { getWorldBorder: () => ({
+    getMinX: () => -3.5, getMaxX: () => 7, getMinZ: () => -5, getMaxZ: () => 2.5
+  }) };
+  assert.equal(context.gpOrbitalWithinBorder(level, -4, 2), true);
+  assert.equal(context.gpOrbitalWithinBorder(level, -5, 2), false);
+  assert.equal(context.gpOrbitalWithinBorder(level, 7, 2), false);
+  assert.equal(context.gpOrbitalWithinBorder(level, 6, -6), false);
+  assert.equal(context.gpOrbitalWithinBorder(level, 6, 3), false);
 });

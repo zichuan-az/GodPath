@@ -10,6 +10,6 @@
 
 Minecraft **1.21.1** · NeoForge **21.1.250** · Java **21**。PCL2 或兼容 Modrinth 包的启动器可导入 `.mrpack`；另附独立地图压缩包。地图解压进该实例的 `saves/`，首次进入会准备车站和沿线区块。详细步骤见[安装与游玩](pack/README.md)。
 
-[下载与版本说明](../../releases) · [实测记录](docs/4.1.0-高山远征与实测.md) · [第三方内容](THIRD_PARTY_NOTICES.md)
+[下载与版本说明](https://github.com/zichuan-az/GodPath/releases) · [实测记录](docs/4.1.0-高山远征与实测.md) · [第三方内容](THIRD_PARTY_NOTICES.md)
 
 `pack/` 是整合包配置、资源和原创 KubeJS 玩法；`scripts/final_mods.json` 锁定依赖与校验值。运行 `npm ci`、`npm test` 和 `python -X utf8 scripts/gen_release.py` 可检查和构建，详见[贡献指南](CONTRIBUTING.md)。

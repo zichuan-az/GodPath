@@ -26,6 +26,8 @@ function gpOrbitalFixtureCommand(player, mode) {
     try { run('fill 20 280 150 60 284 190 minecraft:air'); } catch (e) {}
     try { run('fill 20 275 150 60 279 190 minecraft:stone'); } catch (e) {}
     run('setblock 40 280 170 minecraft:stone');
+    try { run('setblock 40 281 170 minecraft:stone'); } catch (e) {}
+    run('time set day');
     run('setblock 44 280 172 minecraft:chest');
     run('setblock 36 280 172 minecraft:bedrock');
     run('setblock 38 279 172 minecraft:bedrock');
@@ -33,7 +35,7 @@ function gpOrbitalFixtureCommand(player, mode) {
     run('summon minecraft:sheep 43.5 280 170.5 {Tags:["gp_orbital_test","gp_orbital_sheep"],NoAI:1b,PersistenceRequired:1b}');
     run('summon minecraft:wolf 38.5 280 172.5 {Tags:["gp_orbital_test","gp_orbital_pet"],NoAI:1b,PersistenceRequired:1b,Sitting:1b,Owner:[I;' + owner + ']}');
     player.stopRiding();
-    run('tp ' + name + ' 40.5 280 180.5 180 8');
+    run('tp ' + name + ' 40.5 280 180.5 180 4');
     run('item replace entity ' + name + ' weapon.mainhand with godpath:orbital_cannon');
     player.persistentData.putBoolean('gp_god', mode !== 'locked');
     player.persistentData.putBoolean('gp_orbital_terrain', mode === 'terrain');
@@ -41,17 +43,7 @@ function gpOrbitalFixtureCommand(player, mode) {
     player.getCooldowns().removeCooldown(player.getMainHandItem().getItem());
     gpOrbitalTrial = { player: player, mode: mode, started: false, finished: false, deadline: now + (mode === 'locked' ? 180 : 1200) };
     console.info('[GP-ORBITAL] READY ' + mode + ' recipe=' + server.getRecipeManager().byKey(recipeId).isPresent());
-    var hand = Java.loadClass('net.minecraft.world.InteractionHand').MAIN_HAND;
-    var start = () => {
-      var result = player.gameMode.useItem(player, player.level, player.getMainHandItem(), hand);
-      console.info('[GP-ORBITAL] NATIVE USE ' + mode + ' result=' + result + ' using=' + player.isUsingItem());
-    };
-    if (mode == 'entities') {
-      server.scheduleInTicks(5, start);
-      server.scheduleInTicks(27, () => player.releaseUsingItem());
-    }
-    server.scheduleInTicks(45, start);
-    server.scheduleInTicks(125, () => player.releaseUsingItem());
+    player.sendData('gp_orbital_fixture_ready', { mode: mode });
   });
 }
 

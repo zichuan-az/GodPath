@@ -15,6 +15,8 @@ python -X utf8 -m unittest discover -s tests -p "test_*.py"
 
 涉及注册表、鼠标输入、实体、世界生成和游戏界面的改动，还需要在完整整合包中测试。Node 测试验证状态逻辑，无法替代 NeoForge 和模组实际运行。
 
+轨道炮回归使用 `tests/orbital_runtime.js` 与 `tests/orbital_input_client.js`。把它们分别放进**隔离实例**的 `kubejs/server_scripts/` 和 `kubejs/client_scripts/`，用 `GodPathTest` 玩家进入一次性主世界。夹具会改写测试场地并依次触发三种测试；检查日志中的 `[GP-ORBITAL] RESULT`，截图只用来核对视觉表现。构建不会带上这些夹具。
+
 ## 改动约定
 
 - 一次修改解决一个明确问题，说明触发条件和修复后的行为。
